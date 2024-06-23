@@ -19,6 +19,8 @@ public class Attribute {
     private String name;
     @Column(name = "icon_url")
     private String iconUrl;
+    @Column(name = "is_deleted")
+    private boolean isDelete;
     @OneToOne
     @JoinColumn
     private AttributeType attributeType;

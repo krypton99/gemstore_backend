@@ -17,4 +17,6 @@ public class AttributeType {
     private int attributeTypeId;
     @Column(name = "name")
     private String name;
+    @Column(name = "is_deleted")
+    private boolean isDelete;
 }

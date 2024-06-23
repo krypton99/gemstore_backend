@@ -21,5 +21,7 @@ public class GemstoneDescription {
     private String message;
     @Column(name = "benefit", columnDefinition = "TEXT")
     private String benefit;
+    @Column(name = "is_deleted")
+    private boolean isDelete;
 
 }

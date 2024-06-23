@@ -20,6 +20,8 @@ public class Gemstone {
     private String name;
     @Column(name = "title")
     private String title;
+    @Column(name = "is_deleted")
+    private boolean isDelete;
 
     @OneToMany(mappedBy = "gemstone", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
