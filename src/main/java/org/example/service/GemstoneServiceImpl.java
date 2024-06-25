@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.exception.ResourceNotFoundException;
+import org.example.model.Attribute;
 import org.example.model.Response;
 import org.example.model.Gemstone;
 import org.example.repository.GemstoneRepository;
@@ -40,12 +41,41 @@ public class GemstoneServiceImpl implements GemstoneService {
         } catch (Exception e) {
             return new Response("Có lỗi xảy ra", "FAILED");
         }
-        return new Response("Xóa thành công", "OK");
+        return new Response("Loại bỏ gemstone thành công", "OK");
     }
 
     @Override
     public List<Gemstone> getAllGemstones() throws ResourceNotFoundException {
         return gemstoneRepository.findAll();
+    }
+
+    @Override
+    public Response softDeleteGemstone(int id) throws ResourceNotFoundException {
+        try
+        {
+            gemstoneRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy gemstone với id : " + id));
+            gemstoneRepository.softDeleteById(id);
+        } catch (Exception e) {
+            return new Response(e.getMessage(), "FAILED");
+        }
+        return new Response("Xóa thành công gemstone có id = " + id, "OK");
+    }
+
+    @Override
+    public List<Gemstone> getAllDeletedGemstones() {
+        return gemstoneRepository.findAllDeletedGemstones();
+    }
+
+    @Override
+    public Response restoreDeletedGemstone(int id) throws ResourceNotFoundException {
+        try
+        {
+            gemstoneRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy gemstone với id : " + id));
+            gemstoneRepository.restoreDeletedGemstone(id);
+        } catch (Exception e) {
+            return new Response(e.getMessage(), "FAILED");
+        }
+        return new Response("Khôi phục thành công gemstone có id = " + id, "OK");
     }
 
 }

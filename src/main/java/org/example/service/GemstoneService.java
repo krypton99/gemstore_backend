@@ -14,4 +14,7 @@ public interface GemstoneService {
     public Response addGemstone(Gemstone tour);
     public Response deleteGemstone(int id) throws ResourceNotFoundException;
     public List<Gemstone> getAllGemstones() throws ResourceNotFoundException;
+    public Response softDeleteGemstone(int id) throws ResourceNotFoundException;
+    public List<Gemstone> getAllDeletedGemstones();
+    public Response restoreDeletedGemstone(int id) throws ResourceNotFoundException;
 }

@@ -1,9 +1,13 @@
 package org.example.controller;
 
 import org.example.exception.ResourceNotFoundException;
+import org.example.model.Attribute;
 import org.example.model.Gemstone;
+import org.example.model.HasAttribute;
 import org.example.model.Response;
+import org.example.service.AttributeService;
 import org.example.service.GemstoneService;
+import org.example.service.HasAttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -19,6 +23,10 @@ import java.util.Optional;
 public class GemstoneController {
     @Autowired
     private GemstoneService gemstoneService;
+    @Autowired
+    private AttributeService attributeService;
+    @Autowired
+    private HasAttributeService hasAttributeService;
     @GetMapping("/{id}")
     public ResponseEntity<Gemstone> getById(@PathVariable(value = "id") int id ) throws ResourceNotFoundException {
         Gemstone gemstone = gemstoneService.getGemstone(id);
@@ -40,4 +48,25 @@ public class GemstoneController {
     public Response deleteGemstone(@PathVariable(value = "id") int id) throws ResourceNotFoundException {
         return gemstoneService.deleteGemstone(id);
     }
+
+    @PostMapping("")
+    public Response addAttribute(@RequestBody HasAttribute attribute) throws ResourceNotFoundException {
+       return hasAttributeService.hasAttribute(attribute);
+    }
+
+    @PatchMapping("/{id}")
+    public Response softDeleted(@PathVariable int id) throws ResourceNotFoundException {
+        return gemstoneService.softDeleteGemstone(id);
+    }
+
+    @PatchMapping("/{id}")
+    public Response restoreDeleted(@PathVariable int id) throws ResourceNotFoundException {
+        return gemstoneService.restoreDeletedGemstone(id);
+    }
+
+    @GetMapping("/deleted")
+    public ResponseEntity<List<Gemstone>> getAllDeleted() {
+        return ResponseEntity.ok(gemstoneService.getAllDeletedGemstones());
+    }
+
 }
