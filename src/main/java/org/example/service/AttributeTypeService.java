@@ -11,4 +11,5 @@ public interface AttributeTypeService {
     public AttributeType findById(int id) throws ResourceNotFoundException;
     public Response deleteById(int id) throws ResourceNotFoundException;
     public List<AttributeType> findAll() throws ResourceNotFoundException;
+    public Response softDeleteById(int id) throws ResourceNotFoundException;
 }
