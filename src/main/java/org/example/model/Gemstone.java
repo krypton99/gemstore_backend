@@ -28,11 +28,4 @@ public class Gemstone {
     @ToString.Exclude
     private List<Image> images;
 
-    @ManyToMany
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    @JoinTable(name = "has_attribute",
-    joinColumns = @JoinColumn(name = "gemstone_id"),
-    inverseJoinColumns = @JoinColumn(name = "attribute_id"))
-    private List<Attribute> attributes;
 }
