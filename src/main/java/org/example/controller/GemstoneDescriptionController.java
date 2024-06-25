@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/gemstone-description")
 public class GemstoneDescriptionController {
     @Autowired
-    GemstoneDescriptionServiceImpl gemstoneDescriptionService = new GemstoneDescriptionServiceImpl();
+    GemstoneDescriptionService gemstoneDescriptionService;
 
     @GetMapping("/{id}")
     public ResponseEntity<GemstoneDescription> getById(@PathVariable(value="id") int id) throws ResourceNotFoundException {
