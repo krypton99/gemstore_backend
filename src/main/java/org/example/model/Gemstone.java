@@ -11,8 +11,7 @@ import java.util.List;
 @Getter @Setter
 public class Gemstone {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "gemstone_id")
     private int id;
     @Column(name = "code")
     private String code;
@@ -21,7 +20,7 @@ public class Gemstone {
     @Column(name = "title")
     private String title;
     @Column(name = "is_deleted")
-    private boolean isDelete;
+    private boolean isDeleted;
 
     @OneToMany(mappedBy = "gemstone", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude

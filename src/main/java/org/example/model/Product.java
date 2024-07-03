@@ -33,7 +33,7 @@ public class Product {
     private long quantity;
 
     @Column(name = "is_deleted", nullable = false)
-    private boolean isDeleled;
+    private boolean isDeleted;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "has_categories",
@@ -46,4 +46,14 @@ public class Product {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<ProductQuantityChange> productQuantityChanges;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Rating> ratings;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<OrderDetail> orderDetails;
 }

@@ -14,9 +14,9 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class HasAttributeKey implements Serializable {
     @Column(name = "gemstone_id")
-    private String gemstoneId;
+    private long gemstoneId;
 
     @Column(name = "attribute_id")
-    private String attributeId;
+    private long attributeId;
 
 }

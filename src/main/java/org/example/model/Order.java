@@ -1,12 +1,10 @@
 package org.example.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "order")
@@ -34,4 +32,9 @@ public class Order {
 
     @Column(name = "discount_percent", nullable = false)
     private int discountPercent;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<OrderDetail> orderDetails;
 }
