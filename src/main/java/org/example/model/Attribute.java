@@ -14,6 +14,7 @@ import lombok.Setter;
 public class Attribute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "attribute_id")
     private int attributeId;
     @Column(name = "name")
     private String name;

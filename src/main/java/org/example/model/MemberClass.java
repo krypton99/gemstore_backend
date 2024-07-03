@@ -13,7 +13,8 @@ import java.util.List;
 public class MemberClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int class_id;
+    @Column(name = "class_id")
+    private int classId;
 
     @Column(name = "class_name", nullable = false)
     private String className;
@@ -22,7 +23,7 @@ public class MemberClass {
     @Column(name = "class_benefit", columnDefinition = "TEXT")
     private String classBenefit;
 
-    @OneToMany(mappedBy = "account_id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<UserDetail> userDetails;
