@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "member_class")
@@ -14,7 +15,7 @@ public class MemberClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "class_id")
-    private int classId;
+    private long classId;
 
     @Column(name = "class_name", nullable = false)
     private String className;
@@ -23,8 +24,8 @@ public class MemberClass {
     @Column(name = "class_benefit", columnDefinition = "TEXT")
     private String classBenefit;
 
-    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "memberClass", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<UserDetail> userDetails;
+    private Set<UserDetail> userDetails;
 }

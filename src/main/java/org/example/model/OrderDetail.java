@@ -17,12 +17,12 @@ public class OrderDetail {
     OrderDetailKey id;
 
     @ManyToOne
-    @MapsId("orderId")
+    @MapsId("order_id")
     @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
-    @MapsId("productId")
+    @MapsId("product_id")
     @JoinColumn(name = "product_id")
     private Product product;
 

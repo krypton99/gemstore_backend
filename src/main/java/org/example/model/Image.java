@@ -12,6 +12,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Image {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "image_id")
+    private long imageId;
+
     @ManyToOne
     @JoinColumn(name = "gemstone_id")
     private Gemstone gemstone;

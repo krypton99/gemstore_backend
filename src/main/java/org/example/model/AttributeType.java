@@ -15,7 +15,7 @@ public class AttributeType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "attribute_type_id")
-    private int attributeTypeId;
+    private long attributeTypeId;
     @Column(name = "name")
     private String name;
     @Column(name = "is_deleted")

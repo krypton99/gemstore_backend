@@ -21,12 +21,12 @@ public class GemstoneDescriptionServiceImpl implements GemstoneDescriptionServic
     }
 
     @Override
-    public GemstoneDescription getDescription(int id) throws ResourceNotFoundException{
+    public GemstoneDescription getDescription(long id) throws ResourceNotFoundException{
         return gemstoneDescriptionRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy mô tả với id : " + id));
     }
 
     @Override
-    public Response deleteGemstoneDescription(int id) throws ResourceNotFoundException{
+    public Response deleteGemstoneDescription(long id) throws ResourceNotFoundException{
         try {
             GemstoneDescription gemstoneDescription = gemstoneDescriptionRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy mô tả với id : " + id));
         } catch (Exception e) {

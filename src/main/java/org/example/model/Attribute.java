@@ -15,7 +15,7 @@ public class Attribute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "attribute_id")
-    private int attributeId;
+    private long attributeId;
     @Column(name = "name")
     private String name;
     @Column(name = "icon_url")
@@ -23,6 +23,6 @@ public class Attribute {
     @Column(name = "is_deleted")
     private boolean isDelete;
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "attributeType_id")
     private AttributeType attributeType;
 }

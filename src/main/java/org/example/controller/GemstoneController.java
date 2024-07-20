@@ -28,7 +28,7 @@ public class GemstoneController {
     @Autowired
     private HasAttributeService hasAttributeService;
     @GetMapping("/{id}")
-    public ResponseEntity<Gemstone> getById(@PathVariable(value = "id") int id ) throws ResourceNotFoundException {
+    public ResponseEntity<Gemstone> getById(@PathVariable(value = "id") long id ) throws ResourceNotFoundException {
         Gemstone gemstone = gemstoneService.getGemstone(id);
         return ResponseEntity.ok(gemstone);
     }
@@ -45,22 +45,22 @@ public class GemstoneController {
     }
 
     @DeleteMapping("/{id}")
-    public Response deleteGemstone(@PathVariable(value = "id") int id) throws ResourceNotFoundException {
+    public Response deleteGemstone(@PathVariable(value = "id") long id) throws ResourceNotFoundException {
         return gemstoneService.deleteGemstone(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/addAttribute")
     public Response addAttribute(@RequestBody HasAttribute attribute) throws ResourceNotFoundException {
        return hasAttributeService.hasAttribute(attribute);
     }
 
-    @PatchMapping("/{id}")
-    public Response softDeleted(@PathVariable int id) throws ResourceNotFoundException {
+    @PatchMapping("/softDeleted/{id}")
+    public Response softDeleted(@PathVariable long id) throws ResourceNotFoundException {
         return gemstoneService.softDeleteGemstone(id);
     }
 
-    @PatchMapping("/{id}")
-    public Response restoreDeleted(@PathVariable int id) throws ResourceNotFoundException {
+    @PatchMapping("/restoreDeleted/{id}")
+    public Response restoreDeleted(@PathVariable long id) throws ResourceNotFoundException {
         return gemstoneService.restoreDeletedGemstone(id);
     }
 

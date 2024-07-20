@@ -12,12 +12,12 @@ public class HasAttribute {
     HasAttributeKey id;
 
     @ManyToOne
-    @MapsId("gemstoneId")
+    @MapsId("gemstone_id")
     @JoinColumn(name = "gemstone_id")
     private Gemstone gemstone;
 
     @ManyToOne
-    @MapsId("attributeId")
+    @MapsId("attribute_id")
     @JoinColumn(name = "attribute_id")
     private Attribute attribute;
 

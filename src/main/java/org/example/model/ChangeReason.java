@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "change_reason")
@@ -22,5 +23,5 @@ public class ChangeReason {
     @OneToMany(mappedBy = "reason", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<ProductQuantityChange> productQuantityChanges;
+    private Set<ProductQuantityChange> productQuantityChanges;
 }

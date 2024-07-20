@@ -12,8 +12,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter @Setter
 public class ProductDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @Column(name = "description")

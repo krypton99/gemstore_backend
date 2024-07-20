@@ -12,9 +12,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "gemstone_description")
 public class GemstoneDescription {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "gemstone_description_id")
+    @JoinColumn(name = "gemstone_id")
     private Gemstone gemstone;
+
     @Column(name = "story", columnDefinition = "TEXT")
     private String story;
     @Column(name = "message", columnDefinition = "TEXT")

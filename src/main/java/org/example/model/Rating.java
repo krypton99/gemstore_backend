@@ -18,12 +18,12 @@ public class Rating {
     RatingKey id;
 
     @ManyToOne
-    @MapsId("userId")
+    @MapsId("user_id")
     @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @MapsId("productId")
+    @MapsId("product_id")
     @JoinColumn(name = "product_id")
     private Product product;
 

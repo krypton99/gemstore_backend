@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
@@ -36,5 +36,5 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<OrderDetail> orderDetails;
+    private Set<OrderDetail> orderDetails;
 }

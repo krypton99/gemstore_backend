@@ -11,19 +11,23 @@ import java.util.Set;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Table(name = "app_user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
-    private Long userId;
+    private long userId;
 
-    @Column(name = "email", nullable = false)
-    private String column;
+    @Column(name = "email",nullable = false, unique = true)
+    private String email;
 
-    @Column(name = "encrypted_password", nullable = false)
-    private String encryptedPassword;
+    @Column(name = "username",nullable = false, unique = true)
+    private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
@@ -31,6 +35,7 @@ public class User {
     @Column(name = "create_at", nullable = false)
     private Date createAt;
 
+    //private String roles;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "has_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
@@ -41,11 +46,16 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Order> orders;
+    private Set<Order> orders;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Rating> ratings;
+    private Set<Rating> ratings;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<Cart> carts;
 
 }

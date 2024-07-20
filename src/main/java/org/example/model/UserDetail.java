@@ -11,8 +11,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "firstname")

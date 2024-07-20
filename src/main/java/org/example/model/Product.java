@@ -45,15 +45,15 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<ProductQuantityChange> productQuantityChanges;
+    private Set<ProductQuantityChange> productQuantityChanges;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Rating> ratings;
+    private Set<Rating> ratings;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<OrderDetail> orderDetails;
+    private Set<OrderDetail> orderDetails;
 }

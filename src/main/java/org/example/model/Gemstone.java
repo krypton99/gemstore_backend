@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "gemstone")
 @AllArgsConstructor
@@ -11,8 +13,9 @@ import java.util.List;
 @Getter @Setter
 public class Gemstone {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "gemstone_id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "gemstone_id")
+    private long id;
     @Column(name = "code")
     private String code;
     @Column(name = "name")
@@ -25,6 +28,6 @@ public class Gemstone {
     @OneToMany(mappedBy = "gemstone", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Image> images;
+    private Set<Image> images;
 
 }

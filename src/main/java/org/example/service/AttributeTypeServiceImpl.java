@@ -21,12 +21,12 @@ public class AttributeTypeServiceImpl implements AttributeTypeService {
     }
 
     @Override
-    public AttributeType findById(int id) throws ResourceNotFoundException {
+    public AttributeType findById(long id) throws ResourceNotFoundException {
         return attributeTypeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy loại thuộc tính có id = " + id));
     }
 
     @Override
-    public Response deleteById(int id) throws ResourceNotFoundException {
+    public Response deleteById(long id) throws ResourceNotFoundException {
         try {
             AttributeType attributeType = attributeTypeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy loại thuộc tính có id = " + id));
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class AttributeTypeServiceImpl implements AttributeTypeService {
     }
 
     @Override
-    public Response softDeleteById(int id) throws ResourceNotFoundException {
+    public Response softDeleteById(long id) throws ResourceNotFoundException {
         try {
             findById(id);
             attributeTypeRepository.softDeleteById(id);

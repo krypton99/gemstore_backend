@@ -16,7 +16,7 @@ public class GemstoneServiceImpl implements GemstoneService {
     @Autowired
     private GemstoneRepository gemstoneRepository;
     @Override
-    public Gemstone getGemstone(int id) throws ResourceNotFoundException {
+    public Gemstone getGemstone(long id) throws ResourceNotFoundException {
         return gemstoneRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy gemstone có id = " + id));
     }
 
@@ -33,7 +33,7 @@ public class GemstoneServiceImpl implements GemstoneService {
     }
 
     @Override
-    public Response deleteGemstone(int id) throws ResourceNotFoundException {
+    public Response deleteGemstone(long id) throws ResourceNotFoundException {
         try
         {
             gemstoneRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy gemstone với id : " + id));
@@ -50,7 +50,7 @@ public class GemstoneServiceImpl implements GemstoneService {
     }
 
     @Override
-    public Response softDeleteGemstone(int id) throws ResourceNotFoundException {
+    public Response softDeleteGemstone(long id) throws ResourceNotFoundException {
         try
         {
             gemstoneRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy gemstone với id : " + id));
@@ -67,7 +67,7 @@ public class GemstoneServiceImpl implements GemstoneService {
     }
 
     @Override
-    public Response restoreDeletedGemstone(int id) throws ResourceNotFoundException {
+    public Response restoreDeletedGemstone(long id) throws ResourceNotFoundException {
         try
         {
             gemstoneRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy gemstone với id : " + id));
