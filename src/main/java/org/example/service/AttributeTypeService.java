@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface AttributeTypeService {
     public Response addAttrType(AttributeType attributeType);
-    public AttributeType findById(int id) throws ResourceNotFoundException;
-    public Response deleteById(int id) throws ResourceNotFoundException;
+    public AttributeType findById(long id) throws ResourceNotFoundException;
+    public Response deleteById(long id) throws ResourceNotFoundException;
     public List<AttributeType> findAll() throws ResourceNotFoundException;
-    public Response softDeleteById(int id) throws ResourceNotFoundException;
+    public Response softDeleteById(long id) throws ResourceNotFoundException;
 }

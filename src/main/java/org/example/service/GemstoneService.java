@@ -10,11 +10,11 @@ import java.util.Optional;
 
 
 public interface GemstoneService {
-    public Gemstone getGemstone(int id) throws ResourceNotFoundException;
+    public Gemstone getGemstone(long id) throws ResourceNotFoundException;
     public Response addGemstone(Gemstone tour);
-    public Response deleteGemstone(int id) throws ResourceNotFoundException;
+    public Response deleteGemstone(long id) throws ResourceNotFoundException;
     public List<Gemstone> getAllGemstones() throws ResourceNotFoundException;
-    public Response softDeleteGemstone(int id) throws ResourceNotFoundException;
+    public Response softDeleteGemstone(long id) throws ResourceNotFoundException;
     public List<Gemstone> getAllDeletedGemstones();
-    public Response restoreDeletedGemstone(int id) throws ResourceNotFoundException;
+    public Response restoreDeletedGemstone(long id) throws ResourceNotFoundException;
 }

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AttributeRepository extends JpaRepository<Attribute,Integer> {
+public interface AttributeRepository extends JpaRepository<Attribute,Long> {
     @Query(value = "UPDATE is_delete = true FROM attribute a WHERE a.id = ?1",nativeQuery = true)
-    void softDeleteById(int id);
+    void softDeleteById(long id);
 }

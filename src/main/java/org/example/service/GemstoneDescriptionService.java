@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface GemstoneDescriptionService {
     public Response addGemstoneDescription(GemstoneDescription description);
 
-    public GemstoneDescription getDescription(int id) throws ResourceNotFoundException;
+    public GemstoneDescription getDescription(long id) throws ResourceNotFoundException;
 
-    public Response deleteGemstoneDescription (int id) throws ResourceNotFoundException;
+    public Response deleteGemstoneDescription (long id) throws ResourceNotFoundException;
 }

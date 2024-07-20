@@ -2,6 +2,8 @@ package org.example.repository;
 
 import org.example.model.GemstoneDescription;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface GemstoneDescriptionRepository extends JpaRepository<GemstoneDescription, Integer> {
+@Repository
+public interface GemstoneDescriptionRepository extends JpaRepository<GemstoneDescription, Long> {
 }
